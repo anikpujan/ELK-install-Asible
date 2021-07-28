@@ -1,0 +1,13 @@
+---
+#
+# Installing Java 8
+#
+- name: install java
+  apt:
+    name: openjdk-11-jdk
+    state: present
+    update_cache: yes
+- name: Install apt-transport
+  apt:
+    name: apt-transport-https
+    state: present

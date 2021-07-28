@@ -1,0 +1,45 @@
+---
+#
+# Installing Kibana
+#
+
+# Install Kibana 
+
+- name: Install Kibana with apt
+  apt:
+   name: kibana
+   update_cache: yes
+ 
+# Configurations
+
+- name: Updating Kibana config file 
+  template:
+    dest: /etc/kibana/kibana.yml
+    src: kibana.conf.j2
+  # lineinfile:
+  #  destfile: /etc/kibana/kibana.yml
+  #  regexp: 'server.host:'
+  #  line: 'server.host: 0.0.0.0'
+
+# - name: Defining server port
+#   lineinfile:
+#    destfile: /etc/kibana/kibana.yml
+#    regexp: 'server.port:'
+#    line: 'server.port: 5601'
+    
+# - name: Defining Elasticsearch host
+#   lineinfile:
+#    destfile: /etc/kibana/kibana.yml
+#    regexp: 'elasticsearch.hosts:'
+#    line: 'elasticsearch.hosts: ["http://0.0.0.0:9200"]'
+   
+# Starting Kibana
+- name: Enabling Kibana Startup
+  service:
+   name: kibana
+   enabled: yes
+
+- name: Starting Kibana
+  service:
+   name: kibana
+   state: started
