@@ -33,13 +33,14 @@
 #    regexp: 'elasticsearch.hosts:'
 #    line: 'elasticsearch.hosts: ["http://0.0.0.0:9200"]'
    
-# Starting Kibana
-- name: Enabling Kibana Startup
-  service:
-   name: kibana
-   enabled: yes
+# # Starting Kibana
+# - name: Enabling Kibana Startup
+#   service:
+#    name: kibana
+#    enabled: yes
 
-- name: Starting Kibana
+- name: Starting and Enabling Kibana at Startup
   service:
    name: kibana
    state: started
+   enabled: yes
