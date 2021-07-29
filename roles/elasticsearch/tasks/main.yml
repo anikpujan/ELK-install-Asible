@@ -54,12 +54,13 @@
 #     enabled: yes
 #     masked: no
 # Start Elasticsearch
-- name: Enabling Elasticsearch Startup
-  service:
-   name: elasticsearch
-   enabled: yes
-- name: Starting Elasticsearch
+- name:  Starting and Enabling Elasticsearch at Startup
   service:
    name: elasticsearch
    state: started
+   enabled: yes
+# - name: Starting Elasticsearch
+#   service:
+#    name: elasticsearch
+#    state: started
     
