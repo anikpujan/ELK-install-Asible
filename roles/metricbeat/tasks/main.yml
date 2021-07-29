@@ -11,12 +11,13 @@
    update_cache: yes
     
 # Starting Metricbeat
-- name: Starting Metricbeat
-  service:
-   name: metricbeat
-   enabled: yes
-
-- name: Enabling Metricbeat Startup
+- name: Starting and Enbling Metricbeat at Startup
   service:
    name: metricbeat
    state: started
+   enabled: yes
+
+# - name: Enabling Metricbeat Startup
+#   service:
+#    name: metricbeat
+#    state: started
